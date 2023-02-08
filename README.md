@@ -12,7 +12,9 @@ Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra
 
 Projekt je rađen u tročlanom timu prema tablicama u nastavku.
 
-Rađen je u Windows Forms tehnologiji i Entity Frameworku. Sastoji se od prijave (mogućnost prijave pomoću lica s web kamere), unosa artikala ručno ili pomoću barkoda (skeniranjem web kamerom), prikaza statistike o računima i artiklima, PDF ispisa računa i 
+Rađen je u Windows Forms tehnologiji i Entity Frameworku. Sastoji se od prijave (mogućnost prijave pomoću lica s web kamere), unosa artikala ručno ili pomoću barkoda (skeniranjem web kamerom), prikaza statistike o računima i artiklima, PDF ispisa računa i dnevnih prometa te ostalih dodatnih mogućnosti (npr. storniranje). 
+
+Svu dokumentaciju o softveru moguće je pronaći na Wiki dijelu repozitorija. Dijagrami su izrađeni pomoću Visual Paradigma.
 
 ## Projektni tim
 
