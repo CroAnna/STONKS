@@ -6,15 +6,30 @@ Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra
 # Naziv projekta
 <h2>STONKS - Super tehnologija optimalno naprednih kasa Stonks</h2>
 
+👉
+<a href="https://drive.google.com/file/d/13aoFGcPRaKiJIIHuqjvnR9d5AhfHIhH9/view?usp=share_link">Link za instalaciju softvera</a>👈
+
+Projekt je rađen u tročlanom timu prema tablicama u nastavku, u Windows Forms tehnologiji i Entity Frameworku.
+
+
 <p align="center">
 <img src="https://i.ytimg.com/vi/if-2M3K1tqk/maxresdefault.jpg" height="400px" width="600px"  > </img>
 </p>
 
-Projekt je rađen u tročlanom timu prema tablicama u nastavku.
 
-Rađen je u Windows Forms tehnologiji i Entity Frameworku. Sastoji se od prijave (mogućnost prijave pomoću lica s web kamere), unosa artikala ručno ili pomoću barkoda (skeniranjem web kamerom), prikaza statistike o računima i artiklima, PDF ispisa računa i dnevnih prometa te ostalih dodatnih mogućnosti (npr. storniranje). 
+
+Projekt se bavi temom uobičajene blagajne kojom se koriste sve današnje trgovine uz nekoliko dodatnih, nesvakidašnjih mogućnosti (npr. face recognition pri prijavi).
+
+Postoje 2 vrste prijavljenih korisnika, zaposlenika trgovine - obični zaposlenik i voditelj trgovine (koji ima mogućnost dodavanja artikala i unosa primke, a te su mogućnosti onemogućene običnome zaposleniku).
+
+Zaposlenici mogu skenirati barkodove artikala ili ih ručno odabirati te se ti artikli dodaju na račun prilikom kupnje. Zaposlenik bira način plaćanja kupca te se dodatne informacije (datum, ime prodavača) automatski zapisuju na račun koji će se moći prikazati u PDF obliku. Ukoliko dođe do neočekivane promjene, zaposlenik može stornirati račun te se stanje artikala u trgovini vraća na ono kao da se kupnja nije nikad ni dogodila.
+Naravno, mogu se unijeti novi artikli te se povećati stanje proizvoda na skladištu ukoliko dođe nova primka osiguravajući da će u aplikaciji biti ažurni i točni podaci.
+
+Zaposlenici vide sve artikle i sve račune pa, pošto će ih biti puno, imaju neke opcije naprednog pretraživanja, sortiranja i filtriranja. Na kraju svakog dana moći će se izraditi dnevni izvještaj o prometu kako bi uprava trgovine mogla pratiti glavne podatke o poslovanju trgovine.
 
 Svu dokumentaciju o softveru moguće je pronaći na Wiki dijelu repozitorija. Dijagrami su izrađeni pomoću Visual Paradigma.
+
+
 
 ## Projektni tim
 
