@@ -10,13 +10,17 @@ Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra
 <img src="https://i.ytimg.com/vi/if-2M3K1tqk/maxresdefault.jpg" height="400px" width="600px"  > </img>
 </p>
 
+Projekt je rađen u tročlanom timu prema tablicama u nastavku.
+
+Rađen je u Windows Forms tehnologiji i Entity Frameworku. Sastoji se od prijave (mogućnost prijave pomoću lica s web kamere), unosa artikala ručno ili pomoću barkoda (skeniranjem web kamerom), prikaza statistike o računima i artiklima, PDF ispisa računa i 
+
 ## Projektni tim
 
-Ime i prezime | E-mail adresa (FOI)  | Github korisničko ime | 
-------------  | -------------------  | --------------------- | 
-Ana Škarica | askarica20@student.foi.hr  | @CroAnna 
-Martin Friščić | mfriscic20@student.foi.hr  | @Fr1k1  
-Filip Milohanović | fmilohano20@student.foi.hr  | @fmilohano20 
+Ime i prezime  | Github korisničko ime | 
+------------ | --------------------- | 
+Ana Škarica   | @CroAnna 
+Martin Friščić   | @Fr1k1  
+Filip Milohanović  | @fmilohano20 
 
 ## Opis domene
 <!--Umjesto ovih uputa opišite domenu ili problem koji pokrivate vašim  projektom. Domena može biti proizvoljna, ali obratite pozornost da sukladno ishodima učenja, domena omogući primjenu zahtijevanih koncepata kako je to navedeno u sljedećem poglavlju. Priložite odgovarajuće skice gdje je to prikladno.-->
