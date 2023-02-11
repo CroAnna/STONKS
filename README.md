@@ -133,7 +133,7 @@ Pošto se radi o velikom broju poslovnica dogoovrena je prodajna cijena cijena o
 [PDF ponude naručitelju](https://github.com/CroAnna/STONKS/blob/master/Documentation/ponuda_narucitelju.pdf)
 
 
-#2. Specifikacija korisničkih softverskih zahtjeva
+# 2. Specifikacija korisničkih softverskih zahtjeva
 
 ## 2.1. UVOD
 ### 2.1.1. Svrha
@@ -363,6 +363,304 @@ https://github.com/CroAnna/STONKS/blob/master/Documentation/ponuda_narucitelju.p
 ![Slika 12](https://github.com/CroAnna/STONKS/blob/master/Documentation/Unos_dobavljaca.png)
 
 
+
+# 3. Dizajn softverskog sustava
+
+## 3.1. Opis slučajeva korištenja i arhitektura
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/UC%20stonks.svg"/>
+
+## 3.2.1. Specifikacija slučaja korištenja "Prijavljivanje u sustav"
+| Login i registracija | FZ-01 |
+| --- | --- |
+| Kratki opis|Aplikacija će omogućiti da se zaposlenici mogu prijaviti u sustav te će prijava omogućiti pristup svim postojećim funkcionalnostima softverskog rješenja. |
+| Sudionici | Zaposlenik trgovine |
+| Okidač |Zaposlenik želi upotrebljavati softversko rješenje |
+| Iznimke | Nije primjenjivo. |
+| Stanje sustava nakon pojave iznimke | Nije primjenjivo. |
+| Standardni proces |(1) Zaposlenik zahtijeva pristup softveru, (2) Sustav prikazuje formu za prijavu, (3) Zaposlenik unosi ispravne podatke za prijavu i klikne na gumb, (4) Sustav prikazuje formu za dodatnu autentikaciju pomoću lica, (5) Zaposlenik klikne na gumb za uključivanje kamere, a zatim na prepoznavanje lica, (6) Sustav prepoznaje lice osobe, (7) Zaposlenik klikne na gumb potvrdi ako je ispravno prepoznat, (8) Sustav zatvara formu za prijavu pomoću lica i prikazuje početni izbornik |
+| Alternativni proces 1 |(1-2) Isto kao i standardni proces, (3) Zaposlenik unosi neispravne podatke za prijavu i klikne na gumb, (4) Sustav javlja pogrešku o neispravnim podacima, (5) Zaposlenik unosi ispravne podatke, (6-8) Isto kao i standardni proces |
+| Alternativni proces 2 |(1) Zaposlenik zahtijeva pristup softveru, (2) Sustav prikazuje formu za prijavu, (3) Zaposlenik unosi ispravne podatke za prijavu i klikne na gumb, (4) Sustav prikazuje formu za dodatnu autentikaciju pomoću lica, (5) Zaposlenik klikne na gumb za prepoznavanje lica, (6) Sustav ne može prepoznati lice jer lice tog korisnika još ne postoji u bazi, (7) Sustav javlja korisniku da ne postoji njegova slika, (8) Korisnik klikne na gumb za dodavanje fotografije, (9) Sustav otvara formu za dodavanje fotografije, (10) Korisnik dodaje vlastitu fotografiju i opet se ide prijaviti, (11) (6-8) iz standardnog procesa |
+| Preconditions | Zaposlenik ima pristupne podatke za pristup aplikaciji. |
+| Post-conditions |Mogućnost korištenja softvera |
+
+### 3.2.2. Skice ekrana uključenih u "Prijavljivanje u sustav"
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/Prijava.png"/>
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/Prijava_pomocu_lica.png"/>
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/Dodavanje_fotografije.png"/>
+
+
+### 3.2.3. Dijagram aktivnosti 
+
+Prema uputi prikazana je prijava samo preko face recognitiona.
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/AD%20prijava.svg"/>
+
+### 3.2.4. Dijagram klasa 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/CD%20login%20i%20registracija.svg"/>
+
+
+## 3.3.1. Specifikacija slučaja korištenja "Registriranje novih zaposlenika"
+| Login i registracija | FZ-01 |
+| --- | --- |
+| Kratki opis| Aplikacija će omogućiti da se u sustav može dodati novi zaposlenik |
+| Sudionici | Voditelj trgovine |
+| Okidač | Postoji novi zaposlenik koji još nema svoj račun, a treba pristup aplikaciji |
+| Iznimke | Nije primjenjivo. |
+| Stanje sustava nakon pojave iznimke | Nije primjenjivo. |
+| Standardni proces | (1) Voditelj trgovine zahtijeva pristup formi, (2) Sustav prikazuje formu za registraciju, (3) Voditelj unosi podatke o novom zaposleniku, (4) Voditelj klikne na gumb za registriranje korisnika, (5) Sustav javlja poruku o uspješnoj registraciji, (6) Sustav zatvara registracijsku formu i prikazuje formu za prijavu|
+| Alternativni proces 1 |(1-2) Isto kao i standardni proces, (3) Voditelj ne unosi neki od obaveznih atributa o zaposleniku kao što je uloga, (4) Sustav javlja poruku pogreške, (5) Voditelj nakon toga unosi točne podatke, (6) Isto kao i standardni proces |
+| Alternativni proces 2 |(1-2) Isto kao i standardni proces, (3) Voditelj odabire "Povratak", (4) Sustav zatvara formu bez spremanja podataka |
+| Preconditions | Zaposlenik je prijavljen u aplikaciju. Zaposlenik ima ulogu voditelja. |
+| Post-conditions | Novi korisnik je registriran u sustav i može se prijaviti|
+
+### 3.3.2. Skice ekrana uključenih u "Registriranje novih zaposlenika"
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/Registracija.png"/>
+
+
+
+### 3.3.3. Dijagram aktivnosti 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/AD%20registracija.svg"/>
+
+### 3.3.4. Dijagram klasa 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/CD%20login%20i%20registracija.svg"/>
+
+
+## 3.4.1. Specifikacija slučaja korištenja "Unošenje primke"
+| Unos primke | FZ-08 |
+| --- | --- |
+| Kratki opis| Kako bi se zaprimila roba i obnovilo stanje skladišta potrebno je registrirati u sustavu unos artikala. Tu radnju može napraviti jedino voditelj trgovine, dok ostali, obični zaposlenici, nemaju joj pristup. |
+| Sudionici | Voditelj trgovine |
+| Okidač | Voditelj pristupa formi za unos primke. |
+| Iznimke | Nije primjenjivo. |
+| Stanje sustava nakon pojave iznimke | Nije primjenjivo. |
+| Standardni proces | (1) Zaposlenik zahtijeva pristup formi, (2) Zaposlenik odabire dobavljača, (3) Zaposlenik odabire ručno dodavanje proizvoda, (4) Sustav otvara formu za ručno dodavanje proizvoda, (5) Zaposlenik odabire artikl, (6) Zaposlenik unosi dodatne informacije o artiklu, (7) Zaposlenik odabire "Dodaj artikl" (8) Sustav dodaje artikl u unos računa, (9) Zaposlenik je kliknuo na gumb "Unesi primku", (10) Sustav sprema novu primku s izračunima i ažurira količinu dostupnih artikala, (11) Sustav obavještava korisnika da je primka spremljena, (12) Sustav zatvara formu  |
+| Alternativni proces 1 | (1-10) Kao i standardan proces, (8) Sustav javlja da je došlo do pogreške, (9) Sustav zatvara formu |
+| Alternativni proces 2 | (1) Zaposlenik zahtijeva pristup formi, (2) Zaposlenik klikom na gumb "Povratak" odustaje od unosa, (3) Sustav zatvara formu |
+| Alternativni proces 3 | (1-10) Kao i standardan proces, (11) Zaposlenik je kliknuo na gumb "Odustani", (12) Sustav zatvara formu bez spremanja podataka |
+| Preconditions | Zaposlenik je prijavljen u aplikaciju. Zaposlenik ima ulogu voditelja. |
+| Post-conditions | Unesena primka i ažurirana količina dostupnih artikala. |
+
+### 3.4.2. Skice ekrana uključenih u "Unošenje primke"
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/Unos_primke.png"/>
+
+### 3.4.3. Dijagram aktivnosti 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/AD%20Unos%20primke.svg"/>
+
+### 3.4.4. Dijagram klasa 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/CDUnosprimk%20idobavljaca.svg"/>
+
+
+## 3.5.1. Specifikacija slučaja korištenja "Unošenje dobavljača"
+| Unos primke | FZ-08 |
+| --- | --- |
+| Kratki opis| Kako bi se lakše unijelo primke, potrebno je imati listu dobavljača. Kako bi se mogli dodati novi dobavljači, potrebno je imati i unos dobavljača. |
+| Sudionici | Voditelj trgovine |
+| Okidač | Voditelj pristupa formi za unos dobavljača. |
+| Iznimke | Nije primjenjivo. |
+| Stanje sustava nakon pojave iznimke | Nije primjenjivo. |
+| Standardni proces | (1) Zaposlenik zahtijeva pristup formi, (2) Zaposlenik unosi podatke o dobavljaču, (3) Zaposlenik odabire "Odustani" (4) Sustav dodaje novog dobavljača, (5) Sustav obavještava korisnika da je dodan dobavljač, (6) Sustav zatvara formu |
+| Alternativni proces 1 | (1-4) Kao i standardan proces, (5) Sustav javlja da je došlo do pogreške, (6) Sustav zatvara formu bez spremanja podataka |
+| Alternativni proces 2 | (1-2) Kao i standardan proces, (3) Zaposlenik odabire "Odustani", (4) Sustav zatvara formu bez spremanja podataka |
+| Preconditions | Zaposlenik je prijavljen u aplikaciju. Zaposlenik ima ulogu voditelja. |
+| Post-conditions | |
+
+### 3.5.2. Skice ekrana uključenih u "Unošenje dobavljača"
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/Unos_dobavljaca.png"/>
+
+### 3.5.3. Dijagram aktivnosti 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/AD%20unos%20dobavljaca.svg"/>
+
+### 3.5.4. Dijagram klasa 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/CDUnosprimk%20idobavljaca.svg"/>
+
+
+
+
+
+
+
+## 3.6.1. Specifikacija slučaja korištenja "Prikazivanje popisa primki"
+| Unos primke | FZ-08 |
+| --- | --- |
+| Kratki opis| Aplikacija će omogućiti da zaposlenici mogu vidjeti primke koje već postoje u sustavu te artikle koji su njima dodani |
+| Sudionici | Voditelj trgovine |
+| Okidač | Voditelj pristupa formi za unos dobavljača. |
+| Iznimke | Nije primjenjivo. |
+| Stanje sustava nakon pojave iznimke | Nije primjenjivo. |
+| Standardni proces | (1) Zaposlenik zahtijeva pristup formi, (2) Sustav prikazuje sve primke (3) Zaposlenik odabire primku (4) Sustav prikazuje podatke o toj primci u drugoj tablici, (5) Korisnik klikom odabire gumb "Povratak", (6) Sustav zatvara formu  |
+| Preconditions | Zaposlenik je prijavljen u aplikaciju. Zaposlenik ima ulogu voditelja.|
+| Post-conditions | Prikazane primke i detalji o jednoj odabranoj |
+
+
+### 3.6.2. Skice ekrana uključenih u "Prikazivanje popisa primki"
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/PopisPrimki.png"/>
+
+### 3.6.3. Dijagram aktivnosti 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/AD%20Popis%20Primki.svg"/>
+
+### 3.6.4. Dijagram klasa 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/CDUnosprimk%20idobavljaca.svg"/>
+
+## 3.7.1. Specifikacija slučaja korištenja "Izrađivanje novih računa"
+| Izrada računa | FZ-04 |
+| --- | --- |
+| Kratki opis| Kad kupac želi kupiti određene artikle, potrebno je pohraniti artikle i količinu koja se prodaje u sustav, zajedno s ostalim informacijama o plaćanju. Također treba se spremiti račun u sustav, ali i omogućiti spremanje u PDF obliku kako bi kupac imao vlastitu kopiju računa |
+| Sudionici | Zaposlenik trgovine |
+| Okidač | Zaposlenik pristupa početnoj formi za unos stavaka i izradu računa|
+| Iznimke | Nije primjenjivo. |
+| Stanje sustava nakon pojave iznimke | Nije primjenjivo. |
+| Standardni proces | (1) Zaposlenik zahtijeva pristup formi, (2) Zaposlenik odabire ručno dodavanje proizvoda, (3) Zaposlenik odabire proizvod, (4) Zaposlenik odabire "Dodaj artikl" (5) Sustav dodaje artikl u račun i računa ukupno, (6) Zaposlenik odabire nastavak te se otvara sljedeća forma, (7) Zaposlenik izabire način plaćanja, (8) Odabire izradu računa, (9) Sustav sprema novi račun i ažurira količinu dostupnih artikala te zatvara formu |
+| Alternativni proces 1 | (1-7) Kao i standardan proces, (8) Odabire izradu računa s generiranjem PDF-a, (9)  Sustav sprema novi račun, ažurira količinu dostupnih artikala te kreira račun u PDF obliku |
+| Alternativni proces 2 | (1) Zaposlenik zahtijeva pristup formi, (2) Zaposlenik klikom na gumb "Odustani" odustaje od unosa novog računa, (3) Sustav zatvara formu bez unosa podataka |
+| Alternativni proces 3 | (1-7) Kao i standardan proces, (8) Zaposlenik odabire stavku računa, (9) Zaposlenik klikne na gumb "Izbrisi stavku", (10) Sustav briše odabranu stavku iz računa (11-14) Kao i koraci 6-9 standardnog procesa |
+| Alternativni proces 4 | (1-7) Kao i standardan proces, (8) Zaposlenik klikne na gumb "Izbrisi stavku", (9) Sustav obavještava korisnika da ne može obrisati stavku iz računa jer stavka nije odabrana, (10-13) Kao i koraci 6-9 standardnog procesa |
+| Alternativni proces 5 | (1-3) Kao i standardan proces, (4) Zaposlenik odabire "Odustani", (5) Sustav zatvara formu te otvara formu Unos računa (6-9) Kao i standardan proces |
+
+| Preconditions | Zaposlenik je prijavljen u aplikaciju. |
+| Post-conditions | Unesen novi račun i smanjena količina dostupnih artikala |
+
+### 3.7.2. Skice ekrana uključenih u "Izrađivanje novih računa"
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/Unos_racuna.png"/>
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/Rucni_unos_artikla.png"/>
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/Izrada_racuna.png"/>
+
+
+### 3.7.3. Dijagram aktivnosti 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/AD%20Izrada%20racuna%20.svg"/>
+
+### 3.7.4. Dijagram klasa 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/CD%20Prikaz%20racuna.svg"/>
+
+
+
+## 3.7.1. Specifikacija slučaja korištenja "Izrada izvještaja za dnevni promet"
+| Generiranje izvještaja za dnevni promet | FZ-09 |
+| --- | --- |
+| Kratki opis| |
+| Sudionici | Zaposlenik |
+| Okidač | Zaposlenik pristupa formi za generiranje izvještaja |
+| Iznimke | Nije primjenjivo. |
+| Stanje sustava nakon pojave iznimke | Nije primjenjivo. |
+| Standardni proces | (1)Zaposlenik zahtijeva pristup formi, (2) Sustav dohvaća sve račune za određeni datum, (3) Sustav računa ukupan iznos sa i bez gotovine i kartica te ukupan promet, (4) Sustav prikazuje izračunate podatke, (5) Korisnik klika "Ispisi promet X", (6) Sustav generira promet X, (7) Sustav zatvara formu |
+| Alternativni proces 1 | (1-4) Kao i standardan proces, (5) Korisnik klika "Ispisi promet Z", (6) Sustav generira promet Z, (7) Sustav zatvara formu|
+| Alternativni proces 1 | (1-4) Kao i standardan proces, (5) Korisnik klika "Odustani", (6) Sustav zatvara formu|
+| Preconditions | Zaposlenik je prijavljen u aplikaciju. |
+| Post-conditions | Generiran izvještaj |
+
+### 3.7.2. Skice ekrana uključenih u "Izrada izvještaja za dnevni promet"
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/Dnevni_promet.png"/>
+
+### 3.7.3. Dijagram aktivnosti 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/AD%20Dnevni%20Promet.svg"/>
+
+### 3.7.4. Dijagram klasa 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/CD%20Dnevni%20promet.svg"/>
+
+
+
+## 3.7.1. Specifikacija slučaja korištenja "Prikazivanje svih artikala"
+| Prikaz svih artikala | FZ-03 |
+| --- | --- |
+| Kratki opis| Aplikacija će omogućiti da zaposlenici mogu vidjeti artikle koji već postoje u sustavu, pretražiti ih te vidjeti jednostavnu statistiku o njima|
+| Sudionici | Zaposlenik trgovine |
+| Okidač | Zaposlenik pristupa popisu artikala |
+| Iznimke | Nije primjenjivo. |
+| Stanje sustava nakon pojave iznimke | Nije primjenjivo. |
+| Standardni proces | (1) Zaposlenik zahtijeva pristup formi, (2) Sustav prikazuje artikle i statistiku o njima, (3) Zaposlenik klikne na gumb "Povratak", (4) Sustav zatvara formu|
+| Alternativni proces 1 |(1-2) Isto kao i standardni proces, (3) Zaposlenik klikne na gumb "Povratak", (4) Sustav zatvara formu |
+| Alternativni proces 2 |(1-2) Isto kao i standardni proces,  (4) Zaposlenik odabire filter, (5) Sustav prikaže artikle prema odabranome filteru, (6) Zaposlenik klikne na gumb "Povratak", (7) Sustav zatvara formu |
+| Alternativni proces 3 |(1-2) Isto kao i standardni proces,  (4) Zaposlenik klikne na gumb "Dodaj artikl", (5) Sustav prikaže formu za dodavanje artikla, (6) Sustav dodaje artikl preko forme, (7) Sustav zatvara formu |
+| Preconditions | Zaposlenik je prijavljen u aplikaciju. |
+| Post-conditions |Prikazani podaci o artiklima |
+
+### 3.7.2. Skice ekrana uključenih u "Prikazivanje svih artikala"
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/Popis_svih_artikala.png"/>
+
+### 3.7.3. Dijagram aktivnosti 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/AD%20Prikaz%20artikala.svg"/>
+
+### 3.7.4. Dijagram klasa 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/CD%20unos%20i%20prikaz%20artikla.svg"/>
+
+
+## 3.7.1. Specifikacija slučaja korištenja "Prikazivanje postojećih računa"
+| Prikaz računa| FZ-02 |
+| --- | --- |
+| Kratki opis| Aplikacija će omogućiti da zaposlenici mogu vidjeti prethodno kreirane račune, pretražiti ih te vidjeti jednostavnu statistiku o njima. Osim toga mogu i stornirati postojeći račun. |
+| Sudionici | Zaposlenik trgovine |
+| Okidač | Zaposlenik pristupa popisu računa |
+| Iznimke | Nije primjenjivo. |
+| Stanje sustava nakon pojave iznimke | Nije primjenjivo. |
+| Standardni proces | (1) Zaposlenik zahtijeva pristup formi, (2) Sustav prikazuje račune i statistiku o njima, (3) Zaposlenik odabire redak tablice računa, (4) Sustav prikazuje u drugoj tablici stavke odabranog računa, (5) Zaposlenik klikne na gumb "Povratak", (6) Sustav zatvara formu |
+| Alternativni proces 1 | (1-3) Kao i standardan proces, (4) Zaposlenik klikne na gumb "Storniraj", (5) Sustav stornira odabrani račun i ažurira stanje dostupnih artikala, (5) Zaposlenik klikne na gumb "Povratak", (6) Sustav zatvara formu |
+| Alternativni proces 2 | (1-3) Kao i standardan proces, (4) Zaposlenik odabire filter, (5) Sustav prikaže račune prema odabranome filteru, (6) Zaposlenik klikne na gumb "Povratak", (7) Sustav zatvara formu |
+| Alternativni proces 3 | (1-2) Kao i standardan proces, (3) Zaposlenik klikne na gumb "Storniraj", (5) Sustav obavještava korisnika da ne može stornirati račun jer nije odabran, (6) Zaposlenik klikne na gumb "Povratak", (7) Sustav zatvara formu |
+| Alternativni proces 4 | (1-2) Kao i standardan proces, (3) Zaposlenik klikne na gumb "Generiraj PDF", (5) Sustav obavještava korisnika da ne može generirati PDF račun jer nije odabran, (6) Zaposlenik klikne na gumb "Povratak", (7) Sustav zatvara formu |
+| Alternativni proces 5 | (1-3) Kao i standardan proces, (4) Zaposlenik klikne na gumb "Generiraj PDF", (5) Sustav generira PDF kopiju računa, (6) Zaposlenik klikne na gumb "Povratak", (7) Sustav zatvara formu |
+| Preconditions | Zaposlenik je prijavljen u aplikaciju. |
+| Post-conditions | Prikazani podaci o računima |
+
+### 3.7.2. Skice ekrana uključenih u "Prikazivanje postojećih računa"
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/Prikaz_racuna.png"/>
+
+### 3.7.3. Dijagram aktivnosti 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/AD%20Prikaz%20racuna.svg"/>
+
+### 3.7.4. Dijagram klasa 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/CD%20Prikaz%20racuna.svg"/>
+
+
+
+
+## 3.7.1. Specifikacija slučaja korištenja "Unošenje novog artikla"
+|Dodavanje novog artikla| FZ-07 |
+| --- | --- |
+| Kratki opis|Sustav mora omogućiti dodavanje novog artikla pošto su artikli ključni za poslovanje trgovina |
+| Sudionici | Zaposlenik trgovine |
+| Okidač |Zaposlenik pristupa formi za unos artikla |
+| Iznimke | Nije primjenjivo. |
+| Stanje sustava nakon pojave iznimke | Nije primjenjivo. |
+| Standardni proces |(1) Zaposlenik zahtijeva pristup formi, (2) Zaposlenik unosi podatke o artiklu, (3) Zaposlenik odabire "Dodaj artikl" (4) Sustav dodaje novi artikl, (5) Sustav obavještava korisnika da je dodan artikl, (6) Sustav zatvara formu |
+| Alternativni proces 1 |(1-3) Kao i standardan proces, (4) Sustav javlja da je došlo do pogreške, (5) Sustav zatvara formu bez spremanja podataka |
+| Alternativni proces 2 |(1-2) Kao i standardan proces, (3) Zaposlenik klikne na gumb za povratak, (5) Sustav zatvara formu bez spremanja podataka |
+| Preconditions | Zaposlenik je prijavljen u aplikaciju. Zaposlenik ima ulogu voditelja. |
+| Post-conditions | |
+
+### 3.7.2. Skice ekrana uključenih u "Unošenje novog artikla"
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/Unos_artikla.png"/>
+
+### 3.7.3. Dijagram aktivnosti 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/AD%20Unos%20artikla.svg"/>
+
+### 3.7.4. Dijagram klasa 
+
+<img src = "https://github.com/CroAnna/STONKS/blob/master/Documentation/CD%20unos%20i%20prikaz%20artikla.svg"/>
+
+
+## 3.4. Kompletan dijagram klasa
+<img src ="https://github.com/CroAnna/STONKS/blob/master/Documentation/CD%20spojeno.svg"/>
+
+
+## 3.5. Kompletan model podataka (ERA dijagram)
+<img src ="https://github.com/CroAnna/STONKS/blob/master/Documentation/STONKS_ERA.png"/>
 
 
 
