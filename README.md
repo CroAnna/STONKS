@@ -30,6 +30,19 @@ Zaposlenici vide sve artikle i sve račune pa, pošto će ih biti puno, imaju ne
 Svu dokumentaciju o softveru moguće je pronaći na Wiki dijelu repozitorija. Dijagrami su izrađeni pomoću Visual Paradigma.
 
 
+## Preduvjeti za pokretanje koda:
+Kod pokretanja projekta kroz Visual Studio <b>konfiguracija mora biti na x64</b>, a ne na any cpu.
+
+Kod face recognitiona potrebno je malo sporije pritiskati gumbe radi brzine učitavanja slika te se ponekad ne stignu učitati nego se samo prikažu.
+Ovo je općenito napomena kod radnji sa slikama i  kamerom.
+
+Kod registracije nakon pritiska gumba za spremanje slike potrebno je malo pričekati da se slika spremi, a tek onda stisnuti gumb za registraciju kako ne bi došlo do poruke da se slika ne nalazi na računalu jer se nije stigla spremiti. Također, kada se na formi za prijavu licem dohvati npr. neka slika, potrebno je malo pričekati da se ta slika stvarno učita, a ne da se samo prikaže (2-3 sekunde).
+
+Funkcionalnosti s licem općenito bolje funkcioniraju kroz Visual Studio.
+
+ZAHTJEV: računalo MORA imati kameru.
+
+
 
 ## Projektni tim
 
@@ -74,9 +87,93 @@ ALATI:
 
 Preuzmite softver na sljedećem linku: https://drive.google.com/file/d/13aoFGcPRaKiJIIHuqjvnR9d5AhfHIhH9/view?usp=share_link
 
+## Kako instalirati?
+
+Nakon što korisnik preuzme instalaciju, folder izgleda ovako:
+
+![image](https://user-images.githubusercontent.com/100686979/214886525-b96e29d4-3ae6-4393-a828-cc16d7237784.png)
+
+Potrebno je ući u folder Debug i tamo pokrenuti neki od ovih fileova:
+
+![image](https://user-images.githubusercontent.com/100686979/214886681-a53aab4b-5abf-4e24-a938-908376a35ea4.png)
+
+Sam proces instalacije izgleda ovako:
+
+![image](https://user-images.githubusercontent.com/100686979/214886942-b2a4580b-e8a4-4111-ad00-99f25f8b1db2.png)
+
+Potrebno je pritisnuti na next
+
+![image](https://user-images.githubusercontent.com/100686979/214887021-5631916a-4ae6-4b78-92c9-39129e64ed37.png)
+
+Opet je potrebno pritisnuti next, instalacija je konfigurirana tako da se napravi mapa na desktopu u kojoj se nalazi .exe file tj. s njim se pokreće sama aplikacija.
+
+![image](https://user-images.githubusercontent.com/100686979/214887509-15e9175f-b0ad-4195-9c37-91daf9e7acc8.png)
+
+Next
+
+Zatim je potrebno dopustiti instalaciju.
+
+Na kraju instalacije dobije se ovaj prozor
+
+![image](https://user-images.githubusercontent.com/100686979/214887624-86293b41-2daa-4a35-9a94-80471e501699.png)
+
+Pritisnite close te aplikaciju možete naći na radnoj površini u mapi STONKS i pokrenuti STONKS.exe
+
+![image](https://user-images.githubusercontent.com/100686979/214887843-fb399248-ff0d-497d-a568-5bc42ab8caf0.png)
+
+NAPOMENA KOD PRVOG POKRETANJA:
+
+Obzirom da se nije moguće prijaviti kao neki od korisnika pomoću lica jer slika još ne postoji potrebno je stisnuti na učitaj sliku iz baze
+
+![image](https://user-images.githubusercontent.com/100686979/214892313-bfe425a1-33c0-455b-b13d-3bc145da75fd.png)
+
+Zatim se javlja pogreška da nema tog korisnika. Nakon toga potrebno se prijaviti pomoću username password autentifikacije:
+
+username: chorvat <br/>
+password: 1234
+
+![image](https://user-images.githubusercontent.com/100686979/214896453-d7687d5d-c74d-461d-b9f0-3668f691e544.png)
 
 
-#1. O projektu
+Kada je prijavljen voditelj chorvat, moguće je registrirati novog korisnika (dodati svoje lice) i tako onda testirati sve druge funkcionalnosti.
+
+![image](https://user-images.githubusercontent.com/100686979/214896510-f731f584-2c4b-4f9d-a48d-adae8dd19da1.png)
+
+Odabirom ove opcije može se registrirati novi korisnik pa se onda s njim može prijavljivati licem
+
+![image](https://user-images.githubusercontent.com/100686979/214897050-d3449628-9dbd-4b78-ade8-63e5ed73ca4b.png)
+
+NAPOMENA: uoči testiranja prijave i registracije licem uočeno je da se u rijetkim slučajevima dešava nepoznat bug kod kojeg se ne želi prijaviti korisnik nego baca neki error. Tada je potrebno obrisati aplikaciju, instalirati ju i prijaviti se licem s novim korisnikom.
+USPOSTAVLJENO JE DA SE TA GREŠKA JAVLJA KADA SE PREBRZO KLIKA NA OPCIJE JER SE NPR. SLIKA NE STIGNE UČITATI. Također se nakon registracije preporuča pritisnuti na gumb povratak, a ne odmah zatvoriti aplikaciju. Nakon svakog rada s kamerom ili slikom preporučeno je malo pričekati.
+Nakon pritiska gumba za spremanje slike na registraciji, potrebno je pričekati neko vrijeme jer je potrebno da se slika spremi na računalo, a tek onda registrirati korisnika kako bi se izbjegla greška da slika ne postoji na računalu jer se ne stigne spremiti. Kod svih operacija sa učitavanjem ili spremanjem slika potrebno je čekati da se slika zapravo spremi/dohvati jer se prikaže prije nego se zapravo dohvati pa onda zna doći do greške. Rješenje je pričekati 3-4 sekunde (vidi se kada se slika promjeni/stvarno spremi na računalo)
+
+<br/>
+
+
+
+<br/>
+
+<b> Te greške nikada se ne pojavljuju kroz Visual Studio. Kod svih radnja sa kamerom potrebno je pričekati par sekundi da se radnje stignu izvršiti i ne bi nikada trebalo doći do greške. Znači npr. nakon uključivanja kamere treba pričekati par sekundi i tek onda poslikati i slično. Najkritičnije su operacije spremanja/učitavanja slika jer se slika prikaže prije nego se zapravo učita pa je potrebno malo pričekati. Ako se neprestano javlja error o dretvama, treba reinstalirati aplikaciju. U 30 instalacija se dogodilo samo jednom pa je ovo samo napomena. </b>
+
+## Deinstalacija programa
+
+Kako bi se program deinstalirao, potrebno je otići na upravljačku ploču:
+<br/>
+
+![image](https://user-images.githubusercontent.com/100686979/214905654-3e9c190a-441a-44ba-90c2-1509aefbb966.png) <br/>
+Odabrati ovu opciju i pritisnuti Uninstall a program.
+
+Zatim je potrebno pronaći STONKS aplikaciju:
+![image](https://user-images.githubusercontent.com/100686979/214905806-7bfe29c1-52e7-4e9a-bc79-3665a66cb6e5.png) <br/>
+
+, odabrati ju i stisnuti Uninstall/deinstaliraj ovisno o jeziku
+
+![image](https://user-images.githubusercontent.com/100686979/214905939-007bc1df-dd06-477f-b788-345050207897.png)
+
+Aplikacija će se tada deinstalirati.
+
+
+# 1. O projektu
 ## 1.1. Metodološki pristup
 
 Programski tim se odlučio da bi za ovaj projekt bilo najjednostavnije koristiti inkrementalni i bottom-up pristup. <br/>
