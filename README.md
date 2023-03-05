@@ -11,6 +11,13 @@ Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra
 
 Projekt je rađen u tročlanom timu prema tablicama u nastavku, u Windows Forms tehnologiji i Entity Frameworku.
 
+Pogledajte kako izgleda aplikacija u sljedećem videu:
+
+<div align="center">
+
+[![Stonks video](https://img.youtube.com/vi/zolUT7hhwVY/0.jpg)](https://youtu.be/zolUT7hhwVY?autoplay=1&mute=1)
+
+</div>
 
 <p align="center">
 <img src="https://i.ytimg.com/vi/if-2M3K1tqk/maxresdefault.jpg" height="400px" width="600px"  > </img>
