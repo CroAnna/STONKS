@@ -3,8 +3,7 @@
 
 Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra raditi na ovom projektu. Mentor će vam slati povratne informacije kroz sekciju Discussions također dostupnu na GitHubu vašeg projekta. -->
 
-# Naziv projekta
-<h2>STONKS - Super tehnologija optimalno naprednih kasa Stonks</h2>
+# STONKS - Super tehnologija optimalno naprednih kasa Stonks
 
 👉
 <a href="https://drive.google.com/file/d/13aoFGcPRaKiJIIHuqjvnR9d5AhfHIhH9/view?usp=share_link">Link za instalaciju softvera</a>👈
